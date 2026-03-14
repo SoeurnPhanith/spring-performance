@@ -47,4 +47,11 @@ public class StudentController {
         String message = service.deleteStudent(id);
         return ResponseEntity.ok(message);
     }
+
+    @GetMapping("/login-test")
+    public ResponseEntity<String> loginTest() {
+        String containerName = System.getenv("HOSTNAME");
+        System.out.println("Request hit container: " + containerName);
+        return ResponseEntity.ok("Login test successful! Server: " + containerName);
+    }
 }
